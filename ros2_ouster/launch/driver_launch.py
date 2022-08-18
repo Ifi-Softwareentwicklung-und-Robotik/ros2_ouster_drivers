@@ -26,6 +26,7 @@ from launch_ros.event_handlers import OnStateTransition
 from launch.actions import LogInfo
 from launch.events import matches_action
 from launch.event_handlers.on_shutdown import OnShutdown
+from launch.substitutions import TextSubstitution
 
 import lifecycle_msgs.msg
 import os
@@ -41,6 +42,7 @@ def generate_launch_description():
                                            default_value=os.path.join(
                                                share_dir, 'params', 'driver_config.yaml'),
                                            description='FPath to the ROS2 parameters file to use.')
+                                           
 
     driver_node = LifecycleNode(package='ros2_ouster',
                                 executable='ouster_driver',
@@ -49,7 +51,6 @@ def generate_launch_description():
                                 emulate_tty=True,
                                 parameters=[parameter_file],
                                 arguments=['--ros-args', '--log-level', 'INFO'],
-                                namespace='/',
                                 )
 
     configure_event = EmitEvent(
