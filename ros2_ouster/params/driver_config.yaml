@@ -1,7 +1,7 @@
 /**:
   ros__parameters:
-    lidar_ip: os-122137000301.local
-    computer_ip: 192.168.131.150  
+    lidar_ip: os-122137000301.lan
+    computer_ip: flux-capacitor
     lidar_mode: "1024x10"
     imu_port: 7503
     lidar_port: 7502
